@@ -12,5 +12,5 @@ import java.util.Optional;
 public interface IPaymentClient {
 
      @GetMapping("/api/v1.0.0/payment/{id}")
-     Optional<PaymentDto> findByIdClient(@PathVariable Long id);
+     Optional<PaymentDto> findByOrderId(@PathVariable String id);
 }

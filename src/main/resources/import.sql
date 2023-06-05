@@ -1,0 +1,12 @@
+insert into orders (id,client_id,country,create_at,order_id,shipping,status,tax,total) values(1,1,'SV',curdate(),'1324420552075-01','Address','Pending','05','100');
+insert into orders (id,client_id,country,create_at,order_id,shipping,status,tax,total) values(2,2,'GT',curdate(),'1324420552078-01','Pick up shop','finish','10','300');
+insert into orders (id,client_id,country,create_at,order_id,shipping,status,tax,total) values(3,3,'NI',curdate(),'1324420552044-01','Address','Error','20','400');
+insert into orders (id,client_id,country,create_at,order_id,shipping,status,tax,total) values(4,4,'CR',curdate(),'1324420552009-02','Pick up shop','Pending','0','100');
+insert into detail_order (id,discounts,order_id,product_id,quantity) values(1,'10',1,'2',1);
+insert into detail_order (id,discounts,order_id,product_id,quantity) values(2,'0',1,'10',1);
+insert into detail_order (id,discounts,order_id,product_id,quantity) values(3,'12',2,'2',2);
+insert into detail_order (id,discounts,order_id,product_id,quantity) values(4,'0',2,'5',2);
+insert into detail_order (id,discounts,order_id,product_id,quantity) values(5,'0',3,'1',3);
+insert into detail_order (id,discounts,order_id,product_id,quantity) values(6,'60',4,'7',4);
+insert into detail_order (id,discounts,order_id,product_id,quantity) values(7,'0',4,'8',4);
+insert into detail_order (id,discounts,order_id,product_id,quantity) values(8,'50',4,'20',4);

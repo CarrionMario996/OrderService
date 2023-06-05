@@ -30,7 +30,7 @@ public class OrderServiceImpl implements IOrderService{
     public List<OrderDto> findAllOrders() {
         List<OrderDto>resultado= repository.findAllOrders();
         for(OrderDto order:resultado) {
-            order.setPayments(paymentClient.findByIdClient(order.getClientId()));
+            order.setPayments(paymentClient.findByOrderId(order.getOrderId()));
         }
         return resultado;
     }
@@ -68,7 +68,7 @@ public class OrderServiceImpl implements IOrderService{
     public List<OrderDto>findByClientId(Long clientId){
         List<OrderDto>resultado=repository.findByClientId(clientId);
         for(OrderDto order:resultado) {
-            order.setPayments(paymentClient.findByIdClient(order.getClientId()));
+            order.setPayments(paymentClient.findByOrderId(order.getOrderId()));
         }
         return resultado;
     }
