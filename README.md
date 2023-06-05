@@ -36,4 +36,3 @@ Ejecutar comando para clonar repositorio desde consola git
 
 4.1.5 En caso ocupar postman ingresar token en authorization y el tipo de token es Bearer Token
 
-Comparto link de colleccion de postman:
