@@ -25,5 +25,7 @@ public class DetailOrder {
     @Transient
     private ProductDto products;
     private String discounts;
+    @Column(name="order_id")
+    private Long orderId;
 
 }

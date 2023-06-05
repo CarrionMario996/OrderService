@@ -11,8 +11,8 @@ import java.util.List;
 @Repository
 public interface OrderRepository  extends CrudRepository<Order,Long> {
 
-    @Query(nativeQuery = true,value="select d.* from orders d where client_id=?1")
-    public List<Order> findByClientId(Long clientId);
+    @Query(value="select new com.order.service.model.dto.OrderDto(o.orderId,o.country,o.total,o.status,o.clientId) from Order o where o.clientId=?1")
+    public List<OrderDto> findByClientId(Long clientId);
 
     @Query(value="select new com.order.service.model.dto.OrderDto(o.orderId,o.country,o.total,o.status,o.clientId) from Order o")
     public List<OrderDto>findAllOrders();

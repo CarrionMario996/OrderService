@@ -4,8 +4,6 @@ import com.order.service.client.IPaymentClient;
 import com.order.service.client.ProductClient;
 import com.order.service.model.dto.DetailOrderDto;
 import com.order.service.model.dto.OrderDto;
-import com.order.service.model.entity.DetailOrder;
-import com.order.service.model.entity.Order;
 import com.order.service.repository.OrderDetailRepository;
 import com.order.service.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,12 +36,12 @@ public class OrderServiceImpl implements IOrderService{
     }
 
     @Override
-    public List<DetailOrder> findByOrderIdDetails(Long id) {
+    public List<DetailOrderDto> findByOrderIdDetails(Long id) {
 
-        List<DetailOrder>resultado=  repositoryDetail.findByOrderIdDetails(id);
+        List<DetailOrderDto>resultado=  repositoryDetail.findByOrderIdDetails(id);
         if(!resultado.isEmpty()){
 
-            for(DetailOrder detail : resultado){
+            for(DetailOrderDto detail : resultado){
                detail.setProducts(client.findByIdProduct(detail.getProductId()));
             }
 
@@ -67,7 +65,11 @@ public class OrderServiceImpl implements IOrderService{
     }
 
     @Override
-    public List<Order>findByClientId(Long clientId){
-        return repository.findByClientId(clientId);
+    public List<OrderDto>findByClientId(Long clientId){
+        List<OrderDto>resultado=repository.findByClientId(clientId);
+        for(OrderDto order:resultado) {
+            order.setPayments(paymentClient.findByIdClient(order.getClientId()));
+        }
+        return resultado;
     }
 }

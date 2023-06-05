@@ -10,11 +10,12 @@ public class DetailOrderDto {
     private Long quantity;
     private ProductDto products;
     private String discounts;
+    private Long orderId;
 
-    public DetailOrderDto(String productId, Long quantity, String discounts) {
+    public DetailOrderDto(String productId, Long quantity, String discounts,Long orderId) {
         this.productId = productId;
         this.quantity = quantity;
         this.discounts = discounts;
-
+        this.orderId=orderId;
     }
 }

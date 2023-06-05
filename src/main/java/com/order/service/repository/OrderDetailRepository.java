@@ -11,11 +11,11 @@ import java.util.List;
 @Repository
 public interface OrderDetailRepository extends CrudRepository<DetailOrder,Long> {
 
-    @Query(value="select new com.order.service.model.dto.DetailOrderDto(d.productId,d.quantity,d.discounts) from DetailOrder d")
+    @Query(value="select new com.order.service.model.dto.DetailOrderDto(d.productId,d.quantity,d.discounts,d.orderId) from DetailOrder d")
     public List<DetailOrderDto>findAllDetails();
 
-    @Query(nativeQuery = true, value="select d.* from detail_order d where d.order_id=?1")
-    public List<DetailOrder> findByOrderIdDetails(Long id);
+    @Query(value="select new com.order.service.model.dto.DetailOrderDto(d.productId,d.quantity,d.discounts,d.orderId) from DetailOrder d where d.orderId=?1")
+    public List<DetailOrderDto> findByOrderIdDetails(Long id);
 
 
 }
